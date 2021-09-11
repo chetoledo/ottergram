@@ -65,6 +65,7 @@ a{
     flex: 0 1 auto;
     order: 2;
     display: flex;
+    /* display:block;     This actually helps with the images aligning better, however the book states to use 'flex' instead */
     justify-content: space-between;
     list-style: none; /*Gets rid of bullet points */
     padding: 0;  /* Images are no longer indented */
