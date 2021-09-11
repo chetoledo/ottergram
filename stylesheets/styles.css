@@ -76,6 +76,7 @@ a{
 .thumbnail-image{
     display:block;
     width: 100%;        /* Width makes the images adjust to the size of the browsers window */
+    min-height: 80px;
 }
 
 .thumbnail-title {
