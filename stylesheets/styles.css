@@ -51,9 +51,9 @@ a{
     display: flex;
     flex-direction: column;
 }
- .thumbnail-item + .thumbnail-item {
+/* .thumbnail-item + .thumbnail-item {
     margin-top: 10px; /* This '+' will be applied to the 2nd-5th 'li', but NOT THE FIRST, b/c there is no 'li' containing 'class = thumbnail-item' before it. */
-}
+/* } I had to REMOVE this in order to the the first thumbnail pic to adjust with the others */
 .thumbnail-item{
    /* display: block; */
    display: inline-block;
@@ -115,4 +115,25 @@ a{
     color: white;
     text-shadow: rgba(0,0,0,0.9) 1px 2px 9px;
     font-size: 40px;
+}
+
+@media all and (min-width: 768px){
+    .main-content{
+        flex-direction: row;
+        overflow: hidden;    /* This will let the thumbnails and detail images sit next to each other */
+    }
+
+    .thumbnail-list{
+        flex-direction: column;
+        order: 0;
+        margin-left: 20px;
+    }
+
+    .thumbnail-item{
+        max-width: 260px;
+    }
+
+    .thumbnail-item + .thumbnail-item{
+        margin-top:20px;
+    }
 }
