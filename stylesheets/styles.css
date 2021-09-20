@@ -60,6 +60,12 @@ a{
    width: 120px;
    border: 1px solid rgb(100%, 100%, 100%); /*This will be our 'fallback' value in case rgba doesnt work */
    border: 1px solid rgba(100%, 100%, 100%, 0.8); /* The fourth argument is opacity */
+
+   transition: transform 333ms ease-in-out; /*/This tells the browser that it will need to animate the change for 133ms*/
+}
+.thumbnail-item:hover{
+    transform: scale(1.2); /*When the user hovers over the thumbnail, the thumbnail will increase by 120%*/
+
 }
 .thumbnail-list{
     flex: 0 1 auto;
@@ -68,7 +74,7 @@ a{
     /* display:block;     This actually helps with the images aligning better, however the book states to use 'flex' instead */
     justify-content: space-between;
     list-style: none; /*Gets rid of bullet points */
-    padding: 0;  /* Images are no longer indented */
+    padding:20px 0;  /*Prevents the thumbnail from cutting off when the user hovers over it */
 
     white-space: nowrap; /* Prevents '.thumbnail-item' elements from wrapping */
     overflow-x: auto; /*This line tells the browser that it should a SCROLLBAR along the HORIZONTAL space (x-axis) */
@@ -100,6 +106,14 @@ a{
 .detail-image-frame{
     position: relative;
     text-align: center;
+
+/*    transition: transform 333ms cubic-bezier(1,.06,28,1); */
+    transition: transform 333ms cubic-bezier(.76,.13,.83,.67)
+}
+
+.is-tiny {
+    transform: scale(0.001); /*This will scale the element down to a small fraction of its original size */
+    transition: transform 0ms; /*Specifies the transition from the transform property should last 0 ms*/
 }
 
 .detail-image{
@@ -117,6 +131,18 @@ a{
     font-size: 40px;
 }
 
+.hidden-detail .detail-image-container {
+    display:none;
+}
+
+.hidden-detail .thumbnail-list{
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden-detail .thumbnail-item{
+    max-width: 80%;
+}
 @media all and (min-width: 768px){
     .main-content{
         flex-direction: row;
@@ -127,6 +153,8 @@ a{
         flex-direction: column;
         order: 0;
         margin-left: 20px;
+
+        padding: 15px 35px;
     }
 
     .thumbnail-item{
